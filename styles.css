@@ -25,35 +25,57 @@ html, body {
 .container {
   position: relative;
   z-index: 1;
-  height: 100%;
+  min-height: 100vh;
+  padding: 24px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+
+.panel {
+  width: min(720px, 92vw);
+  padding: 32px 28px;
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .tagline {
   font-size: 1.2rem;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .links a {
   text-decoration: none;
   color: #ffffff;
-  border: 1px solid #ffffff;
-  padding: .5rem 1rem;
-  margin: 0 .5rem;
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .links a:hover {
   background: #ffffff;
   color: #0f0f0f;
+  border-color: #ffffff;
+  transform: translateY(-1px);
 }

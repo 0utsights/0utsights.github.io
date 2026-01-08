@@ -1,13 +1,15 @@
+// hexgrid code is based on https://www.redblobgames.com/grids/hexagons/
+
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 const SQ = Math.sqrt(3);
 
-// ====== tweakables ======
-let s = 30;                 // hex "size" (outer radius)
+// config
+let s = 15;                 // hex "size" (outer radius)
 const P = 40;               // repeat period in hexes (bigger = less obvious loop)
-let vx = 90;                // pixels/sec
-let vy = 60;                // pixels/sec
+let vx = 25;                // pixels/sec
+let vy = 10;                // pixels/sec
 
 // camera in fractional axial coords
 let camQ = 0.0;
@@ -72,8 +74,8 @@ function frame(now) {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, W, H);
 
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = "rgba(120, 200, 255, 0.9)";
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "rgba(51, 51, 51, 0.9)";
 
   const cq = Math.floor(camQ);
   const cr = Math.floor(camR);
