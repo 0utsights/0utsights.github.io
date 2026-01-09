@@ -26,7 +26,6 @@ html, body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,14 +34,18 @@ html, body {
 
 
 .panel {
+  min-height: 100vh;
   width: min(720px, 92vw);
-  padding: 32px 28px;
-  border-radius: 18px;
 
   background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 h1 {
