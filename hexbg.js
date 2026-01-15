@@ -15,12 +15,17 @@ let vy = 10;       // pixels/sec
 let camQ = 0.0;
 let camR = 0.0;
 
+let dpr = 1;
+
 function resize() {
-  const dpr = window.devicePixelRatio || 1;
+  dpr = window.devicePixelRatio || 1;
+
   canvas.width = Math.floor(window.innerWidth * dpr);
   canvas.height = Math.floor(window.innerHeight * dpr);
+
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
+
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 window.addEventListener("resize", resize);
@@ -53,12 +58,11 @@ function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
 
-  const W = window.innerWidth;
-  const H = window.innerHeight;
+  const W = canvas.width / dpr;
+  const H = canvas.height / dpr;
 
-  // pixel velocity -> axial delta (inverse transform)
-  const dQ = ((SQ / 3) * vx - (1 / 3) * vy) / s * dt;
-  const dR = ((2 / 3) * vy) / s * dt;
+  const dQ = -(((SQ / 3) * vx - (1 / 3) * vy) / s * dt);
+  const dR = -(((2 / 3) * vy) / s * dt);
 
   camQ = (camQ + dQ) % P;
   camR = (camR + dR) % P;
@@ -69,6 +73,7 @@ function frame(now) {
   const R = Math.floor(H / (1.5 * s)) + 3;
 
   ctx.clearRect(0, 0, W, H);
+
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, W, H);
 
@@ -85,7 +90,6 @@ function frame(now) {
       const x = rel.x + W / 2;
       const y = rel.y + H / 2;
 
-      // quick cull
       if (x < -2 * s || x > W + 2 * s || y < -2 * s || y > H + 2 * s) continue;
 
       drawHex(x, y);
