@@ -6,8 +6,9 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: Arial;
   background-color: black;
   color: #ffffff;
 }
@@ -28,24 +29,25 @@ html, body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 64px 0;
   text-align: center;
 }
 
 
 .panel {
-  min-height: 100vh;
   width: min(720px, 92vw);
+  padding: 64px 24px;
 
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 12px;
 }
 
 h1 {
