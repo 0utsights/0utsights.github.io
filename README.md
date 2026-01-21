@@ -6,7 +6,7 @@ This is my personal portfolio website, built from scratch using plain **HTML, CS
 
 ## Live Site
 
-👉 https://johnsurles.com
+https://johnsurles.com
 
 ---
 
@@ -28,5 +28,5 @@ No frameworks, no libraries.
 
 The grid is not precomputed or tiled images — every hex is drawn mathematically each frame.
 
-Reference used for the math:
+Reference used for the hexagon math:
 - https://www.redblobgames.com/grids/hexagons/
