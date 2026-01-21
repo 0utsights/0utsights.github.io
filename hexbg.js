@@ -8,8 +8,8 @@ const SQ = Math.sqrt(3);
 // config
 let s = 15;        // hex "size" (outer radius)
 const P = 40;      // repeat period in hexes
-let vx = 25;       // pixels/sec
-let vy = 10;       // pixels/sec
+let vx = -25;      // pixels/sec
+let vy = -10;      // pixels/sec
 
 // camera in fractional axial coords
 let camQ = 0.0;
