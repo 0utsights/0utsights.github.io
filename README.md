@@ -1,6 +1,6 @@
 # johnsurles.com — Personal Portfolio
 
-This is my personal portfolio website, built from scratch using plain **HTML, CSS, and JavaScript**.
+This is my personal portfolio website, built from scratch using **HTML, CSS, and JavaScript**.
 
 ---
 
@@ -17,8 +17,6 @@ https://johnsurles.com
 - **JavaScript (Canvas API)** – animated hex grid background
 - **GitHub Pages** – hosting
 - **Namecheap** – custom domain + DNS
-
-No frameworks, no libraries.
 
 ### Key concepts used:
 - Axial hex coordinates (based on Red Blob Games)
