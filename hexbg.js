@@ -6,8 +6,8 @@ const ctx = canvas.getContext("2d");
 const SQ = Math.sqrt(3);
 
 // config
-let s = 15;        // hex "size" (outer radius)
-const P = 40;      // repeat period in hexes
+let s = 35;        // hex "size" (outer radius)
+const P = 30;      // repeat period in hexes
 let vx = -25;      // pixels/sec
 let vy = -10;      // pixels/sec
 
@@ -72,7 +72,7 @@ function frame(now) {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, W, H);
 
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 1.5;
   ctx.strokeStyle = "rgba(51, 51, 51, 0.9)";
 
   const cq = Math.floor(camQ);
