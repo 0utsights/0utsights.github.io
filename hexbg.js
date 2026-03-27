@@ -78,11 +78,11 @@ function frame(now) {
   if (camR < 0) camR += P;
 
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#f5f3ef";
+  ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, W, H);
 
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = "rgba(180, 175, 168, 0.45)";
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = "rgba(51, 51, 51, 0.9)";
 
   const cq = Math.floor(camQ);
   const cr = Math.floor(camR);
