@@ -5,18 +5,14 @@ const ctx = canvas.getContext("2d");
 
 const SQ = Math.sqrt(3);
 
-// config
-let s = 35;       // hex outer radius
-const P = 30;     // axial repeat period
-let vx = -25;     // px/sec
-let vy = -10;     // px/sec
+let s = 35;
+const P = 30;
+let vx = -25;
+let vy = -10;
 
-// camera in fractional axial coords
 let camQ = 0.0;
 let camR = 0.0;
 
-// precomputed unit hex corner offsets (flat-top orientation, 60° steps starting at -30°)
-// recomputed whenever s changes via precomputeHex()
 let HEX_COS = [];
 let HEX_SIN = [];
 
@@ -31,10 +27,8 @@ function precomputeHex() {
 }
 precomputeHex();
 
-// cached viewport dimensions — updated on resize, read from cache in frame loop
 let W = 0;
 let H = 0;
-// visible hex range — only changes on resize, not every frame
 let visQ = 0;
 let visR = 0;
 
@@ -47,14 +41,12 @@ function resize() {
   canvas.style.width = W + "px";
   canvas.style.height = H + "px";
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
   visQ = Math.floor(W / (SQ * s)) + 3;
   visR = Math.floor(H / (1.5 * s)) + 3;
 }
 window.addEventListener("resize", resize);
 resize();
 
-// axial -> pixel
 function a2p(q, r) {
   return {
     x: SQ * s * (q + r / 2),
@@ -62,7 +54,6 @@ function a2p(q, r) {
   };
 }
 
-// draw a single hex outline using precomputed offsets
 function drawHex(cx, cy) {
   ctx.beginPath();
   ctx.moveTo(cx + HEX_COS[0], cy + HEX_SIN[0]);
@@ -78,7 +69,6 @@ function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
 
-  // pixel velocity -> axial delta (inverse of a2p transform)
   const dQ = ((SQ / 3) * vx - (1 / 3) * vy) / s * dt;
   const dR = ((2 / 3) * vy) / s * dt;
 
@@ -88,11 +78,11 @@ function frame(now) {
   if (camR < 0) camR += P;
 
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#f5f3ef";
   ctx.fillRect(0, 0, W, H);
 
-  ctx.lineWidth = 1.5;
-  ctx.strokeStyle = "rgba(51, 51, 51, 0.9)";
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "rgba(180, 175, 168, 0.45)";
 
   const cq = Math.floor(camQ);
   const cr = Math.floor(camR);
@@ -105,9 +95,7 @@ function frame(now) {
       const rel = a2p(q - camQ, r - camR);
       const x = rel.x + halfW;
       const y = rel.y + halfH;
-
       if (x < -pad || x > W + pad || y < -pad || y > H + pad) continue;
-
       drawHex(x, y);
     }
   }
