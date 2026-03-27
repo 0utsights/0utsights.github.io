@@ -1,4 +1,4 @@
-# johnsurles.com — Personal Portfolio
+# johnsurles.com
 
 This is my personal portfolio website, built from scratch using **HTML, CSS, and JavaScript**.
 
