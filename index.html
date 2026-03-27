@@ -14,7 +14,7 @@
   <canvas id="bg"></canvas>
 
   <main class="container">
-    <section class="panel" id="panel">
+    <section class="panel">
       <h1>John Surles</h1>
       <p class="tagline">Student • Developer</p>
 
@@ -54,11 +54,5 @@
   </main>
 
   <script src="hexbg.js?v=20260327"></script>
-  <script>
-    // trigger entrance animation after first paint so it's always visible
-    requestAnimationFrame(() => {
-      document.getElementById("panel").classList.add("visible");
-    });
-  </script>
 </body>
 </html>
