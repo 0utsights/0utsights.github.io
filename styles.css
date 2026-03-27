@@ -10,12 +10,8 @@ html, body {
   overflow-x: hidden;
   background-color: black;
   color: #ffffff;
-<<<<<<< HEAD
 
   font-family: "Space Mono";
-=======
-  font-family: "Space Grotesk", sans-serif;
->>>>>>> adf9e76 (removed animations and css transitions (debloat) unified panel spacing, dropped reundant margin-bottom)
 }
 
 #bg {
