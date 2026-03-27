@@ -4,18 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>John Surles</title>
-  <link rel="stylesheet" href="styles.css?v=20260120">
-  <!-- google font -->
+  <link rel="stylesheet" href="styles.css?v=20260327">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+
   <canvas id="bg"></canvas>
 
   <main class="container">
-    <section class="panel">
+    <section class="panel" id="panel">
       <h1>John Surles</h1>
       <p class="tagline">Student • Developer</p>
 
@@ -23,10 +22,12 @@
         <a href="https://github.com/0utsights" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="mailto:surlesjohn@outlook.com">Email</a>
       </div>
+
       <section class="section-card about">
         <h2>About Me</h2>
         <p>Hello! I'm John Surles. I take interest in exploring new technologies and finding unique ways to implement them that relate to myself.</p>
       </section>
+
       <section class="section-card projects">
         <h2>Projects</h2>
         <div class="projects-grid">
@@ -34,8 +35,8 @@
             <h3>Project 1</h3>
             <p>Short desc</p>
             <div class="project-actions">
-              <a href="https://linkd.lol" target="_blank" rel="noopener noreferrer">Live</a>
-              <a href="https://github.com/0utsights" target="_blank" rel="noopener noreferrer">Code</a>
+              <a href="https://linkd.lol" target="_blank" rel="noopener noreferrer">Live ↗</a>
+              <a href="https://github.com/0utsights" target="_blank" rel="noopener noreferrer">Code ↗</a>
             </div>
           </article>
 
@@ -43,8 +44,8 @@
             <h3>Project 2</h3>
             <p>Short desc</p>
             <div class="project-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer">Live</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">Code</a>
+              <a href="#" target="_blank" rel="noopener noreferrer">Live ↗</a>
+              <a href="#" target="_blank" rel="noopener noreferrer">Code ↗</a>
             </div>
           </article>
         </div>
@@ -52,6 +53,12 @@
     </section>
   </main>
 
-  <script src="hexbg.js?v=20260120"></script>
+  <script src="hexbg.js?v=20260327"></script>
+  <script>
+    // trigger entrance animation after first paint so it's always visible
+    requestAnimationFrame(() => {
+      document.getElementById("panel").classList.add("visible");
+    });
+  </script>
 </body>
 </html>
